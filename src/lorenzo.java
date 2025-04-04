@@ -10,6 +10,15 @@ public class lorenzo {
         algoritmo6();
         algoritmo7();
         algoritmo8();
+        algoritmo9();
+        algoritmo10();
+        algoritmo11();
+        algoritmo12();
+        algoritmo13();
+        algoritmo14();
+        algoritmo15();
+        algoritmo16();
+        algoritmo17();
     }
 
     public static void algoritmo1() {
@@ -84,7 +93,7 @@ public class lorenzo {
             numV = scan.nextInt();
             array[i] = numV;
             i++;
-        };
+        }
         System.out.println("Quale numero vuoi confrontare?");
         int numero = scan.nextInt();
         int minore = 0;
@@ -92,9 +101,9 @@ public class lorenzo {
         while (i < n) {
             if (array[i] < numero) {
                 minore = minore + 1;
-            };
+            }
             i++;
-        };
+        }
         System.out.println("I numeri nel vettore minori di " + numero + " sono " + minore);
     }
 
@@ -106,7 +115,7 @@ public class lorenzo {
         while (i < array.length) {
             somma = somma + array[i];
             i++;
-        };
+        }
         System.out.println("La somma dei numeri nell'array è " + somma);
     }
 
@@ -129,7 +138,7 @@ public class lorenzo {
             num1 = num2;
             num2 = num3;
             i++;
-        };
+        }
     }
 
     public static void algoritmo7() {
@@ -138,16 +147,16 @@ public class lorenzo {
         boolean repeat = false;
         int i = 0;
         int n = arrayV.length;
-        while (i < n - 1 && repeat == false) {
+        while (i < n - 1 && !repeat) {
             int j = i + 1;
-            while (j < n && repeat == false) {
+            while (j < n && !repeat) {
                 if (arrayV[i] == arrayV[j]) {
                     repeat = true;
-                };
+                }
                 j++;
-            };
+            }
             i++;
-        };
+        }
 
         if (repeat) {
             System.out.println("Il vettore ha numeri ripetuti");
@@ -163,10 +172,10 @@ public class lorenzo {
         int i = 0;
         int n = V.length;
         boolean same = true;
-        while ((i < n) && same == true) {
+        while ((i < n) && same) {
             if (V[i] != i ) {
                 same = false;
-            };
+            }
             i++;
         }
         if (same) {
@@ -175,4 +184,237 @@ public class lorenzo {
             System.out.println("I numeri nel vettore non corrispondono ai valori del loro indice");
         }
     }
+
+    public static void algoritmo9() {
+        //Dato vettore V determina se ogni valore dell'array corrisponde al valore del suo indice pari contiene un numero pari e se ogni numero dispari contiene un numero dispari
+        int[] v1 = {0,1,2,3,4,5,6,7};
+        int[] v2 = {1,2,3,4,5,6,7,8};
+        int[] v3 = {0};
+        int i = 0;
+        while (i < v1.length) {
+            if (i % 2 == 0) {
+                if (v1[i] % 2 == 0) {
+                    System.out.println("Il numero " + i + " del vettore v1 è pari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v1 non è pari");
+                }
+            } else {
+                if (v1[i] % 2 == 1) {
+                    System.out.println("Il numero " + i + " del vettore v1 è dispari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v1 non è dispari");
+                }
+            }
+            i++;
+        }
+        i = 0;
+        while (i < v2.length) {
+            if (i % 2 == 0) {
+                if (v2[i] % 2 == 0) {
+                    System.out.println("Il numero " + i + " del vettore v2 è pari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v2 non è pari");
+                }
+            } else {
+                if (v2[i] % 2 == 1) {
+                    System.out.println("Il numero " + i + " del vettore v2 è dispari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v2 non è dispari");
+                }
+            }
+            i++;
+        }
+        i = 0;
+        while (i < v3.length) {
+            if (i % 2 == 0) {
+                if (v3[i] % 2 == 0) {
+                    System.out.println("Il numero " + i + " del vettore v3 è pari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v3 non è pari");
+                }
+            } else {
+                if (v3[i] % 2 == 1) {
+                    System.out.println("Il numero " + i + " del vettore v3 è dispari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v23 non è dispari");
+                }
+            }
+            i++;
+        }
+    }
+
+    public static void algoritmo10() {
+        //Dato un array di dimensione n, riempi il vettore con le prime potenze di 2
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Fino a che potenza di 2 vuoi arrivare?");
+        int n = scan.nextInt();
+        int[] array = new int[n + 1];
+        int i = 1;
+        if (n == 0) {
+            System.out.println("Il risultato di 2 alla 0 è 1");
+            array[0] = 1;
+        } else {
+            System.out.println("Il risultato di 2 alla 0 è 1");
+            array[0] = 1;
+            int num1 = 1;
+            int num2 = 2;
+            int num3;
+            while (i < n + 1){
+                num3 = num1 * num2;
+                array[i] = num3;
+                System.out.println("Il risultato di 2 alla "+ i + " è " + num3);
+                num1 = num3;
+                i++;
+            }
+        }
+    }
+
+    public static void algoritmo11() {
+        //Dato vettore V di dimensione n, determina se il vettore è palindromo
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Determina la grandezza del vettore");
+        int n = scan.nextInt();
+        int[] V = new int[n];
+        int i = 0;
+        while (i < n) {
+            System.out.println("Inserisci un valore all'interno del vettore");
+            V[i] = scan.nextInt();
+            i++;
+        }
+        i = 0;
+        int j = n - 1;
+        boolean palindromo = true;
+        while (i < j && palindromo) {
+            if (V[i] != V[j]) {
+                palindromo = false;
+            }
+            i++;
+            j--;
+        }
+        if (palindromo) {
+            System.out.println("Il vettore è palidromo");
+        } else {
+            System.out.println("Il vettore non è palidromo");
+        }
+    }
+
+    public static void algoritmo12() {
+        //Dato vettore V=[1,2,2,1,0,f,1,1] determina se ci sono numeri ripetuti
+        String[] V = {"1","2","2","1","0","f","1","1"};
+        int i = 0;
+        boolean repeat = false;
+        while (i < V.length - 1 && !repeat) {
+            int j = i + 1;
+            while (j < V.length) {
+                if (V[i] == V[j]) {
+                    repeat = true;
+                }
+                j++;
+            }
+            i++;
+        }
+        if (repeat) {
+            System.out.println("Il vettore V ha valori ripetuti");
+        } else {
+            System.out.println("Il vettore V non ha valori ripetuti");
+        }
+    }
+
+    public static void algoritmo13() {
+        //Dato un vettore V=[1,3,3,4,4,4,6,6,6,6,6] ordinato in ordine crescente, determina se ci sono numeri ripetuti, nel caso ci siano stampa a video quali e quanti;
+        int[] V = {1,3,3,4,4,4,6,6,6,6,6};
+        int i = 0;
+
+        while (i < V.length) {
+            int j = i + 1;
+            int repeat = 1;
+            if (V[i] == V[j]) {
+                repeat = repeat + 1;
+                boolean repetition = true;
+                j++;
+                while ( j < V.length && repetition) {
+                    if (V[i] == V[j]) {
+                        repeat = repeat + 1;
+                        j++;
+                    } else {
+                        repetition = false;
+                    }
+                }
+                System.out.println("Il numero " + V[i] + " è presente nel vettore " + repeat + " volte");
+                i = j;
+            } else {
+                i++;
+            }
+        }
+    }
+
+    public static void algoritmo14() {
+        //Dati 2 array V v1=[2,4,8,16] e v2=[3,6,9,12], vrea un terzo array v3 che contiene il prodotto scalare di v1 e v2
+        int[] v1 = {2,4,8,16};
+        int[] v2 = {3,6,9,12};
+        int n = 4;
+        int[] v3 = new int[n];
+        int i = 0;
+        while (i < v1.length) {
+            v3[i] = v1[i] * v2[i];
+            System.out.println("Il prodotto scalare in posizione " + i + " è " + v3[i]);
+            i++;
+        }
+    }
+
+    public static void algoritmo15() {
+        //Fai la sopmma dei valori contenuti in una matrice n x m
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Quante righe vuoi che abbia la matrice?");
+        int n = scan.nextInt();
+        System.out.println("Quante colonne vuoi che abbia la matrice?");
+        int m = scan.nextInt();
+        int[][] M = new int[n][m];
+        int somma = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.println("Inserisci il numero per la posizione [" + i + "][" + j + "]");
+                M[i][j] = scan.nextInt();
+                somma += M[i][j];
+            }
+        }
+        System.out.println("La somma dei numeri nella matrice M è " + somma);
+    }
+
+    public static void algoritmo16() {
+        //Trova il valore massimo contenuto in una matrice n x n
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Quante righe/colonne vuoi che abbia la matrice?");
+        int n = scan.nextInt();
+        int[][] M = new int[n][n];
+        int max = M[0][0];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.println("Inserisci il numero per la posizione [" + i + "][" + j + "]");
+                M[i][j] = scan.nextInt();
+                if (M[i][j] > max) {
+                    max = M[i][j];
+                }
+            }
+        }
+        System.out.println("Il numero più alto nella matrice M è " + max);
+    }
+
+    public static void algoritmo17() {
+        //Inverti il vettore V=[1,2,3,10,5,6,8]
+        int[] V = {1,2,3,10,5,6,8};
+        int n = V.length;
+        int i = 0;
+        while (i < n / 2) {
+            int j = n - 1 - i;
+            int temp = V[i];
+            V[i] = V[j];
+            V[j] = temp;
+            i++;
+        }
+        for (i = 0; i < V.length; i++) {
+            System.out.println("il numero nel vettore V in posizione " + i + " ora è " + V[i]);
+        }
+    }
+
 }
