@@ -21,6 +21,10 @@ public class lorenzo {
         algoritmo17();
         algoritmo18();
         algoritmo19();
+        algoritmo20();
+        algoritmo21();
+        algoritmo22();
+        algoritmo23();
     }
 
     public static void algoritmo1() {
@@ -469,5 +473,154 @@ public class lorenzo {
         }
     }
 
+    public static void algoritmo20() {
+        //Realizzare un algoritmo che verifichi se una matrice è identita(vale a dire che tutti i valori della diagonale principale è composta da 1)
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Quante righe/colonne vuoi che abbia la tua matrice?");
+        int n = scan.nextInt();
+        int[][] m = new int [n][n];
+        int i = 0;
+        while (i < n ) {
+            int j = 0;
+            while (j < n) {
+                System.out.println("Che numero vuoi inserire nella matrice m in posizione m[" + i + "][" + j + "]?");
+                m[i][j] = scan.nextInt();
+                j++;
+            }
+            i++;
+        }
+        i = 0;
+        boolean identita = true;
+        while (i < n && identita) {
+            int j = 0;
+            while (j < n && identita) {
+                if (i == j) {
+                    if (m[i][j] != 1) {
+                        identita = false;
+                    }
+                }
+                j++;
+            }
+            i++;
+        }
+        if (identita) {
+            System.out.println("La matrice m è identita");
+        } else {
+            System.out.println("La matrice m non è identita");
+        }
+    }
 
+    public static void algoritmo21() {
+        //Realizzare un algoritmo che verifichi se una matrice m ha tutti 0 sulla parte triangolare superiore
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Quante righe/colonne vuoi che abbia la tua matrice?");
+        int n = scan.nextInt();
+        int[][] m = new int [n][n];
+        int i = 0;
+        while (i < n ) {
+            int j = 0;
+            while (j < n) {
+                System.out.println("Che numero vuoi inserire nella matrice m in posizione m[" + i + "][" + j + "]?");
+                m[i][j] = scan.nextInt();
+                j++;
+            }
+            i++;
+        }
+        i = 0;
+        boolean triangolo = true;
+        while (i < n && triangolo) {
+            int j = 0;
+            while (j < n && triangolo) {
+                if (j > i) {
+                    if (m[i][j] != 0) {
+                        triangolo = false;
+                    }
+                }
+                j++;
+            }
+            i++;
+        }
+        if (triangolo) {
+            System.out.println("La matrice m ha il triangolo superiore che è composto da soli 0");
+        } else {
+            System.out.println("La matrice m ha il triangolo superiore che non è composto da soli 0");
+        }
+    }
+
+    public static void algoritmo22() {
+        //Realizzare un algoritmo da un vettore A disposto da numeri interi in posizione crescente aggiunga in un nuovo vettore B lungo n + 1 un nuovo numero messo nella posizione corretta
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Quanto vuoi che sia lungo il vettore A");
+        int n = scan.nextInt();
+        int[] A = new int[n];
+        int[] B = new int[n + 1];
+        int i = 0;
+        while (i < n) {
+            System.out.println("Che numero vuoi aggiungere al vettore in ordine crescente?");
+            A[i] = scan.nextInt();
+            i++;
+        }
+        i = 0;
+        int j = 0;
+        boolean inserito = false;
+        System.out.println("Che numero vuoi aggiungere nel vettore B?");
+        int num = scan.nextInt();
+        while (i < n) {
+            if (A[i] < num || inserito) {
+                B[j] = A[i];
+                i++;
+            } else {
+                B[j] = num;
+                inserito = true;
+            }
+            j++;
+        }
+        if (!inserito) {
+            B[j] = num;
+        }
+        j = 0;
+        System.out.print("Vettore B con numero aggiunto:");
+        while (j < n + 1) {
+            System.out.print(" " + B[j]);
+            j++;
+        }
+    }
+
+    public static void algoritmo23() {
+        //Dato un array di interi ed una target sum, trova gli indice dei 2 numeri che sommati risultano essere il target; diagramma di flusso, java, passo passo, pseudo
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Quanto vuoi che sia lungo il vettore");
+        int n = scan.nextInt();
+        int[] V = new int[n];
+        int i = 0;
+        while (i < n) {
+            System.out.println("Che numero vuoi aggiungere nel vettore in posizione " + i + "?");
+            V[i] = scan.nextInt();
+            i++;
+        }
+        i = 0;
+        System.out.println("Qual'è la somma di numeri che stai cercando?");
+        int targetsum = scan.nextInt();
+        boolean trovata = false;
+        int[] V2 = new int[2];
+        while (i < n - 1 && !trovata) {
+            int j = i + 1;
+            while (j < n && !trovata) {
+                int somma = V[i] + V[j];
+                if (somma == targetsum) {
+                    trovata = true;
+                    V2[0] = i;
+                    V2[1] = j;
+                }
+                j++;
+            }
+            i++;
+        }
+        if (trovata) {
+            System.out.println("La somma " + targetsum + " è stata trovata ed e composta dal numero in posizione " + V2[0] + " e " + V2[1] + " del vettore V, perchè " + V[V2[0]] + "+" + V[V2[1]] + "=" + targetsum);
+        } else {
+            System.out.println("La somma " + targetsum + " non è stata trovata nel vettore V");
+        }
+    }
 }
+
